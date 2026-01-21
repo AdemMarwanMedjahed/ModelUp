@@ -73,13 +73,13 @@ if __name__ == "__main__":
     )
     parser.add_argument("--base-delay", type=float, default=0.15, help="Base action delay in seconds.")
     parser.add_argument("--jitter", type=float, default=0.1, help="Action delay jitter in seconds.")
-    parser.add_argument(
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument(
         "--dry-run",
         action="store_true",
-        default=True,
         help="Log actions without clicking (recommended for safety).",
     )
-    parser.add_argument(
+    mode_group.add_argument(
         "--live",
         action="store_true",
         help="Enable real mouse actions via pynput (disables dry-run).",
@@ -87,4 +87,6 @@ if __name__ == "__main__":
     parsed = parser.parse_args()
     if parsed.live:
         parsed.dry_run = False
+    elif not parsed.dry_run:
+        parsed.dry_run = True
     run(parsed)

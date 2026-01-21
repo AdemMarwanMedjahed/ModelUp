@@ -118,6 +118,12 @@ Exemple avec ROI et couleur cible (ici jaune/vert) :
 PYTHONPATH=src python -m codex_demo.main --roi 100 100 800 600 --hsv-lower 25 80 80 --hsv-upper 40 255 255
 ```
 
+Pour activer le clic automatique (mode réel) :
+
+```bash
+PYTHONPATH=src python -m codex_demo.main --live
+```
+
 ## Pour compléter le projet
 
 Il faudra remplacer les stubs par des implémentations réelles :
