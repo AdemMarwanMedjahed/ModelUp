@@ -106,7 +106,16 @@ Si tu veux, je peux aussi faire :
 Ce dépôt inclut un pipeline minimal en Python pour simuler la boucle capture → détection → décision → action.
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 PYTHONPATH=src python -m codex_demo.main
+```
+
+Exemple avec ROI et couleur cible (ici jaune/vert) :
+
+```bash
+PYTHONPATH=src python -m codex_demo.main --roi 100 100 800 600 --hsv-lower 25 80 80 --hsv-upper 40 255 255
 ```
 
 ## Pour compléter le projet

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Tuple
+from typing import Any, Tuple
 
 
 class State(str, Enum):
@@ -31,12 +31,9 @@ class DecisionContext:
 
 @dataclass
 class Frame:
-    """Represents a captured frame.
-
-    In the real implementation, this would hold image data. For now it carries
-    a frame index and optional metadata so the pipeline can run without heavy
-    dependencies.
-    """
+    """Represents a captured frame."""
 
     index: int
     timestamp: float
+    image: Any
+    region: Tuple[int, int, int, int] | None = None
